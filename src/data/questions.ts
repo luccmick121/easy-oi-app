@@ -58,17 +58,5 @@ export const questions: Question[] = [
       { id: "no", text: "NO", icon: "👎" }
     ],
     balanceIncrease: 45
-  },
-  {
-    id: 6,
-    title: "🎁 Congratulations! 🎁",
-    subtitle: "To register your bank account and withdraw funds, watch a 4-minute video.",
-    options: [
-      {
-        id: "watch",
-        text: "WATCH THE VIDEO"
-      }
-    ],
-    balanceIncrease: 45
   }
 ];

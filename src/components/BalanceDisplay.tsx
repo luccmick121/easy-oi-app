@@ -8,16 +8,17 @@ interface BalanceDisplayProps {
 
 const BalanceDisplay = memo(({ balance, className }: BalanceDisplayProps) => {
   return (
-    <div className={cn(
-      "fixed top-4 sm:top-6 left-1/2 transform -translate-x-1/2 z-50",
-      "bg-card/95 backdrop-blur-sm border border-border rounded-lg px-4 sm:px-6 py-2 sm:py-3",
-      "shadow-elegant hover:shadow-glow transition-all duration-300",
-      "max-w-[90vw]",
-      className
-    )}>
-      <h2 className="text-xl sm:text-2xl font-bold text-primary font-roboto">
-        ${balance.toFixed(2)}
-      </h2>
+    <div className="fixed top-0 left-0 right-0 z-50">
+      <div className="flex justify-center items-center h-[89px] px-4" style={{ backgroundColor: '#0D2436' }}>
+        <div className={cn(
+          "balance-card rounded-lg px-6 py-3 max-w-[523px] w-full text-right",
+          className
+        )}>
+          <h2 className="text-2xl font-semibold font-roboto" style={{ color: '#138D36' }}>
+            ${balance.toFixed(2)}
+          </h2>
+        </div>
+      </div>
     </div>
   );
 });
