@@ -13,9 +13,9 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
   if (question.id === 1) {
     return (
       <div className="main-container">
-        <div className="flex flex-col items-center justify-center px-4 min-h-screen">
+        <div className="flex flex-col items-center justify-center px-2 min-h-screen">
           <div className="initial-screen-card fade-in">
-            <div className="text-center space-y-6">
+            <div className="text-center space-y-4">
               <h1 className="text-white font-medium mb-4" style={{ fontSize: '19px' }}>
                 🎁 Congratulations! 🎁
               </h1>
@@ -28,7 +28,7 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
                 You have already earned $33.91!
               </div>
               
-              <p className="text-white mb-6" style={{ fontSize: '15px', fontWeight: '400' }}>
+              <p className="text-white mb-4" style={{ fontSize: '15px', fontWeight: '400' }}>
                 Complete 5 more evaluations and make your first withdrawal!
               </p>
               
@@ -47,7 +47,7 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
               </button>
               
               {/* Footer - como na segunda imagem */}
-              <footer className="mt-8 text-center space-y-2 text-gray-400" style={{ fontSize: '12px', fontWeight: '400' }}>
+              <footer className="mt-6 text-center space-y-2 text-gray-400" style={{ fontSize: '12px', fontWeight: '400' }}>
                 <p>Privacy Policy | Terms of Use</p>
                 <p>All rights reserved.</p>
               </footer>
