@@ -10,9 +10,9 @@ export const questions: Question[] = [
     videoViews: "2.1M views",
     videoDuration: "8:45",
     options: [
-      { id: "like", text: "😊 I like it" },
-      { id: "love", text: "😍 I love it" },
-      { id: "dislike", text: "😞 I don't like it" }
+      { id: "like", text: "😊" },
+      { id: "love", text: "😍" },
+      { id: "dislike", text: "😞" }
     ],
     balanceIncrease: 45
   },
@@ -25,9 +25,9 @@ export const questions: Question[] = [
     videoViews: "1.5M views",
     videoDuration: "12:30",
     options: [
-      { id: "yes", text: "👍 Yes" },
-      { id: "maybe", text: "🤔 Maybe" },
-      { id: "no", text: "👎 No" }
+      { id: "yes", text: "👍" },
+      { id: "maybe", text: "🤔" },
+      { id: "no", text: "👎" }
     ],
     balanceIncrease: 45
   },
@@ -40,9 +40,9 @@ export const questions: Question[] = [
     videoViews: "3.2M views",
     videoDuration: "15:20",
     options: [
-      { id: "like2", text: "😊 I like it" },
-      { id: "love2", text: "😍 I love it" },
-      { id: "dislike2", text: "😞 I don't like it" }
+      { id: "like2", text: "😊" },
+      { id: "love2", text: "😍" },
+      { id: "dislike2", text: "😞" }
     ],
     balanceIncrease: 45
   },
@@ -55,9 +55,9 @@ export const questions: Question[] = [
     videoViews: "890K views",
     videoDuration: "10:15",
     options: [
-      { id: "yes2", text: "👍 Yes" },
-      { id: "maybe2", text: "🤔 Maybe" },
-      { id: "no2", text: "👎 No" }
+      { id: "yes2", text: "👍" },
+      { id: "maybe2", text: "🤔" },
+      { id: "no2", text: "👎" }
     ],
     balanceIncrease: 45
   },

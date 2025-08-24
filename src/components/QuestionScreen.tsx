@@ -79,11 +79,11 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
     <div className="main-container">
       <div className="flex flex-col items-center justify-center px-4 min-h-screen">
         <div className="fade-in max-w-md w-full">
-          {/* Card branco com o conteúdo do vídeo */}
-          <div className="bg-white rounded-lg p-6 mb-6">
-            {/* Título do vídeo */}
+          {/* Card escuro com todo o conteúdo */}
+          <div className="bg-gray-800 rounded-lg p-6 text-center">
+            {/* Título do vídeo em branco */}
             {question.videoTitle && (
-              <h3 className="text-black font-semibold text-lg mb-4 text-center leading-tight">
+              <h3 className="text-white font-semibold text-lg mb-4 leading-tight">
                 {question.videoTitle}
               </h3>
             )}
@@ -91,70 +91,75 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
             {/* Thumbnail do vídeo */}
             {question.image && (
               <div className="flex justify-center slide-in mb-3">
-                <img
-                  src={question.image}
-                  alt={question.videoTitle || question.title}
-                  className="rounded-lg max-w-full h-auto"
-                  loading="lazy"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                  }}
-                />
+                <div className="relative">
+                  <img
+                    src={question.image}
+                    alt={question.videoTitle || question.title}
+                    className="rounded-lg max-w-full h-auto"
+                    loading="lazy"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
+                  />
+                  {/* Duração do vídeo no canto inferior direito */}
+                  {question.videoDuration && (
+                    <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
+                      {question.videoDuration}
+                    </div>
+                  )}
+                </div>
               </div>
             )}
             
-            {/* Estatísticas do vídeo */}
-            {(question.videoViews || question.videoDuration) && (
-              <div className="flex justify-center gap-2 text-gray-500 text-sm mb-4">
-                {question.videoViews && <span>{question.videoViews}</span>}
-                {question.videoViews && question.videoDuration && <span>•</span>}
-                {question.videoDuration && <span>{question.videoDuration}</span>}
+            {/* Estatísticas do vídeo em branco */}
+            {question.videoViews && (
+              <div className="text-gray-300 text-sm mb-6">
+                {question.videoViews} • 10 months ago
               </div>
             )}
-          </div>
 
-          {/* Pergunta fora do card branco */}
-          <div className="text-center space-y-4 mb-6">
-            <h2 className="text-blue-400 font-medium" style={{ fontSize: '19px' }}>
-              {question.title}
-            </h2>
-            {question.subtitle && (
-              <p className="text-white" style={{ fontSize: '15px', fontWeight: '400' }}>
-                {question.subtitle}
-              </p>
-            )}
-          </div>
+            {/* Pergunta dentro do card escuro em branco */}
+            <div className="mb-4">
+              <h2 className="text-white font-medium text-lg mb-2">
+                {question.title}
+              </h2>
+              {question.subtitle && (
+                <p className="text-white text-sm">
+                  {question.subtitle}
+                </p>
+              )}
+            </div>
 
-          {/* Botões com emojis */}
-          <div className="space-y-3">
-            {question.options.map((option, index) => {
-              const buttonColors = [
-                '#17B651', // Verde - exato do original
-                '#FDD809', // Amarelo - exato do original  
-                '#D90000'  // Vermelho - exato do original
-              ];
-              const backgroundColor = buttonColors[index % buttonColors.length];
+            {/* Botões com apenas emojis - mais arredondados */}
+            <div className="flex justify-center gap-3">
+              {question.options.map((option, index) => {
+                const buttonColors = [
+                  '#17B651', // Verde
+                  '#FDD809', // Amarelo  
+                  '#D90000'  // Vermelho
+                ];
+                const backgroundColor = buttonColors[index % buttonColors.length];
 
-              return (
-                <Button
-                  key={option.id}
-                  onClick={() => onOptionSelect(option.id)}
-                  disabled={disabled}
-                  className={`w-full py-4 px-6 text-white rounded-sm transition-all duration-200 ${
-                    disabled ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'
-                  }`}
-                  style={{ 
-                    backgroundColor,
-                    fontSize: '18px',
-                    fontWeight: '500',
-                    border: 'none'
-                  }}
-                >
-                  {option.text}
-                </Button>
-              );
-            })}
+                return (
+                  <Button
+                    key={option.id}
+                    onClick={() => onOptionSelect(option.id)}
+                    disabled={disabled}
+                    className={`w-16 h-12 text-white rounded-full transition-all duration-200 ${
+                      disabled ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'
+                    }`}
+                    style={{ 
+                      backgroundColor,
+                      fontSize: '24px',
+                      border: 'none'
+                    }}
+                  >
+                    {option.text}
+                  </Button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
