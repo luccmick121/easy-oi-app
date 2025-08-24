@@ -79,11 +79,11 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
     <div className="main-container">
       <div className="flex flex-col items-center justify-center px-4 min-h-screen">
         <div className="fade-in max-w-md w-full">
-          {/* Card escuro com todo o conteúdo */}
-          <div className="bg-gray-800 rounded-lg p-6 text-center">
-            {/* Título do vídeo em branco */}
+          {/* Card branco com todo o conteúdo */}
+          <div className="bg-white shadow-lg rounded-lg p-6 text-center">
+            {/* Título do vídeo em escuro */}
             {question.videoTitle && (
-              <h3 className="text-white font-semibold text-lg mb-4 leading-tight">
+              <h3 className="text-gray-900 font-semibold text-lg mb-4 leading-tight">
                 {question.videoTitle}
               </h3>
             )}
@@ -112,20 +112,20 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
               </div>
             )}
             
-            {/* Estatísticas do vídeo em branco */}
+            {/* Estatísticas do vídeo em cinza */}
             {question.videoViews && (
-              <div className="text-gray-300 text-sm mb-6">
+              <div className="text-gray-500 text-sm mb-6">
                 {question.videoViews} • 10 months ago
               </div>
             )}
 
-            {/* Pergunta dentro do card escuro em branco */}
+            {/* Pergunta dentro do card branco em escuro */}
             <div className="mb-4">
-              <h2 className="text-white font-medium text-lg mb-2">
+              <h2 className="text-gray-900 font-medium text-lg mb-2">
                 {question.title}
               </h2>
               {question.subtitle && (
-                <p className="text-white text-sm">
+                <p className="text-gray-600 text-sm">
                   {question.subtitle}
                 </p>
               )}
