@@ -18,7 +18,7 @@ const RewardsApp = () => {
       showConfirmButton: false,
       timer: 2000,
       timerProgressBar: true,
-      background: '#122534',
+      background: '#122534', /* Exact original SweetAlert background */
       color: '#FFFFFF',
       customClass: {
         popup: 'fade-in'

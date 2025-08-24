@@ -9,37 +9,43 @@ interface QuestionScreenProps {
 }
 
 const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScreenProps) => {
-  // Tela inicial de boas-vindas (primeira pergunta)
+  // Special welcome screen for first question - EXACT ORIGINAL
   if (question.id === 1) {
     return (
       <div className="main-container">
         <div className="flex flex-col items-center justify-center px-4 min-h-screen">
-          <div className="final-screen-card fade-in">
-            <div className="text-center space-y-6 mb-8">
-              <h2 className="text-white" style={{ fontSize: '24px', fontWeight: '600' }}>
+          <div className="initial-screen-card fade-in">
+            <div className="text-center space-y-6">
+              <h1 className="text-white font-medium mb-4" style={{ fontSize: '19px' }}>
                 🎁 Congratulations! 🎁
-              </h2>
-              <p className="text-white" style={{ fontSize: '19px', fontWeight: '500' }}>
-                You have been selected to participate in our exclusive survey and earn real money!
+              </h1>
+              <p className="text-white mb-4" style={{ fontSize: '15px', fontWeight: '400' }}>
+                You have been selected to participate in YouTube's new rewards program.
               </p>
-              <p className="text-white" style={{ fontSize: '15px', fontWeight: '400' }}>
-                Answer a few quick questions and watch your balance grow.
+              
+              {/* Earnings highlight card - EXACT ORIGINAL */}
+              <div className="earnings-card">
+                You have already earned $33.91!
+              </div>
+              
+              <p className="text-white mb-6" style={{ fontSize: '15px', fontWeight: '400' }}>
+                Answer 5 simple questions and earn money for each correct answer.
               </p>
+              
+              <button
+                onClick={() => onOptionSelect('start')}
+                disabled={disabled}
+                className="w-full py-4 px-6 text-white rounded-sm font-medium transition-all duration-200 hover:scale-105"
+                style={{ 
+                  backgroundColor: '#138D36',
+                  fontSize: '18px',
+                  fontWeight: '500',
+                  border: 'none'
+                }}
+              >
+                CLICK HERE AND START!
+              </button>
             </div>
-
-            <Button
-              onClick={() => onOptionSelect('start')}
-              disabled={disabled}
-              className="w-full py-4 px-6 text-white rounded-sm font-medium"
-              style={{ 
-                backgroundColor: '#138D36',
-                fontSize: '18px',
-                fontWeight: '500',
-                border: 'none'
-              }}
-            >
-              START EARNING
-            </Button>
           </div>
         </div>
       </div>

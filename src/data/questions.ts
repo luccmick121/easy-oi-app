@@ -7,7 +7,7 @@ export const questions: Question[] = [
     subtitle: "",
     image: "",
     options: [
-      { id: "start", text: "START EARNING" }
+      { id: "start", text: "CLICK HERE AND START!" }
     ],
     balanceIncrease: 0
   },

@@ -103,6 +103,28 @@ body {
   text-align: center;
 }
 
+/* Initial screen card - EXACT ORIGINAL */
+.initial-screen-card {
+  background-color: #0C2741; /* Exact original initial card background */
+  border-radius: 12px;
+  padding: 30px 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Earnings highlight card - EXACT ORIGINAL */
+.earnings-card {
+  background-color: #D4EDDA; /* Exact original earnings background */
+  color: #138D36; /* Exact original earnings text */
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+
 /* Tela final */
 .final-screen-card {
   background-color: #0D2436;
