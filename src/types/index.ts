@@ -3,6 +3,9 @@ export interface Question {
   title: string;
   subtitle?: string;
   image?: string;
+  videoTitle?: string;
+  videoViews?: string;
+  videoDuration?: string;
   options: QuestionOption[];
   balanceIncrease: number;
 }

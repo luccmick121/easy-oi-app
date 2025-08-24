@@ -78,25 +78,45 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
   return (
     <div className="main-container">
       <div className="flex flex-col items-center justify-center px-4 min-h-screen">
-        <div className="question-card fade-in">
-          {question.image && (
-            <div className="flex justify-center slide-in mb-6">
-              <img
-                src={question.image}
-                alt={question.title}
-                className="rounded-lg"
-                style={{ width: '331px', height: 'auto' }}
-                loading="lazy"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                }}
-              />
-            </div>
-          )}
+        <div className="fade-in max-w-md w-full">
+          {/* Card branco com o conteúdo do vídeo */}
+          <div className="bg-white rounded-lg p-6 mb-6">
+            {/* Título do vídeo */}
+            {question.videoTitle && (
+              <h3 className="text-black font-semibold text-lg mb-4 text-center leading-tight">
+                {question.videoTitle}
+              </h3>
+            )}
+            
+            {/* Thumbnail do vídeo */}
+            {question.image && (
+              <div className="flex justify-center slide-in mb-3">
+                <img
+                  src={question.image}
+                  alt={question.videoTitle || question.title}
+                  className="rounded-lg max-w-full h-auto"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+              </div>
+            )}
+            
+            {/* Estatísticas do vídeo */}
+            {(question.videoViews || question.videoDuration) && (
+              <div className="flex justify-center gap-2 text-gray-500 text-sm mb-4">
+                {question.videoViews && <span>{question.videoViews}</span>}
+                {question.videoViews && question.videoDuration && <span>•</span>}
+                {question.videoDuration && <span>{question.videoDuration}</span>}
+              </div>
+            )}
+          </div>
 
+          {/* Pergunta fora do card branco */}
           <div className="text-center space-y-4 mb-6">
-            <h2 className="text-white" style={{ fontSize: '19px', fontWeight: '500' }}>
+            <h2 className="text-blue-400 font-medium" style={{ fontSize: '19px' }}>
               {question.title}
             </h2>
             {question.subtitle && (
@@ -106,6 +126,7 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
             )}
           </div>
 
+          {/* Botões com emojis */}
           <div className="space-y-3">
             {question.options.map((option, index) => {
               const buttonColors = [
