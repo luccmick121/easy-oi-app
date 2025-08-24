@@ -16,7 +16,7 @@ const RewardsApp = () => {
       html: `<strong>You received: <span style="color: green;">+$${increment.toFixed(2)}</span></strong>`,
       icon: 'success',
       showConfirmButton: false,
-      timer: 2000,
+      timer: 1500,
       timerProgressBar: true,
       background: '#122534', /* Exact original SweetAlert background */
       color: '#FFFFFF',
@@ -49,21 +49,23 @@ const RewardsApp = () => {
         saldoElement.classList.add('zoom-in');
       }
 
-      // Show popup only if not on final question (question 5 = index 4)
-      const isLastQuestion = currentScreen >= questions.length - 1;
-      if (!isLastQuestion) {
-        showBalanceAlert(increment);
-      }
-
       // Mark question as completed
       const newCompleted = new Set(completedQuestions);
       newCompleted.add(currentScreen);
       setCompletedQuestions(newCompleted);
 
-      // Move to next question or final screen
-      if (currentScreen < questions.length - 1) {
-        setCurrentScreen(currentScreen + 1);
+      // Check if this is the last question (question 5 = index 4)
+      const isLastQuestion = currentScreen >= questions.length - 1;
+      
+      if (!isLastQuestion) {
+        // Show popup for questions 1-4, then transition after popup finishes
+        showBalanceAlert(increment);
+        
+        setTimeout(() => {
+          setCurrentScreen(currentScreen + 1);
+        }, 1800); // Wait for popup to finish (1500ms + 300ms buffer)
       } else {
+        // Last question: go directly to final screen without popup
         setCurrentScreen(5); // Show final screen (index 5)
       }
 
