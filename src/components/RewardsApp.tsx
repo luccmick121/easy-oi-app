@@ -1,124 +1,106 @@
-import { useState, useCallback, useEffect } from 'react';
-import { toast, Toaster } from 'react-hot-toast';
+import { useState, useCallback } from 'react';
+import Swal from 'sweetalert2';
 import { questions } from '@/data/questions';
-import { AppState } from '@/types';
-import BalanceDisplay from './BalanceDisplay';
 import QuestionScreen from './QuestionScreen';
 import FinalScreen from './FinalScreen';
-
-const INITIAL_BALANCE = 33.91;
+import BalanceDisplay from './BalanceDisplay';
 
 const RewardsApp = () => {
-  const [state, setState] = useState<AppState>({
-    currentScreen: 0,
-    balance: INITIAL_BALANCE,
-    completedQuestions: []
-  });
+  const [currentScreen, setCurrentScreen] = useState(0);
+  const [balance, setBalance] = useState(33.91);
+  const [completedQuestions, setCompletedQuestions] = useState<Set<number>>(new Set());
 
-  const [isProcessing, setIsProcessing] = useState(false);
-
-  const showBalanceToast = useCallback((increment: number) => {
-    // Toast personalizado como SweetAlert2 do original
-    toast.success(
-      `You received: +$${increment.toFixed(2)}`,
-      {
-        duration: 2000,
-        position: 'top-center',
-        style: {
-          background: '#d4edda',
-          color: '#138d36',
-          border: '1px solid #c3e6cb',
-          borderRadius: '5px',
-          fontFamily: 'Roboto',
-          fontWeight: '600'
-        }
+  const showBalanceAlert = useCallback((increment: number) => {
+    Swal.fire({
+      title: 'Balance Updated',
+      html: `<strong>You received: <span style="color: green;">+$${increment.toFixed(2)}</span></strong>`,
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      background: '#122534',
+      color: '#FFFFFF',
+      customClass: {
+        popup: 'fade-in'
       }
-    );
+    });
   }, []);
 
   const handleOptionSelect = useCallback((optionId: string) => {
-    if (isProcessing) return;
-    
-    setIsProcessing(true);
-    const currentQuestion = questions[state.currentScreen];
-    
-    // Update balance if this question hasn't been completed
-    if (!state.completedQuestions.includes(currentQuestion.id) && currentQuestion.balanceIncrease > 0) {
-      const newBalance = state.balance + currentQuestion.balanceIncrease;
-      
-      setState(prev => ({
-        ...prev,
-        balance: newBalance,
-        completedQuestions: [...prev.completedQuestions, currentQuestion.id]
-      }));
-
-      // Show toast for balance increase
-      showBalanceToast(currentQuestion.balanceIncrease);
+    if (optionId === 'start') {
+      setCurrentScreen(1);
+      return;
     }
 
-    // Advance to next screen after a short delay
-    setTimeout(() => {
-      setState(prev => ({
-        ...prev,
-        currentScreen: Math.min(prev.currentScreen + 1, questions.length)
-      }));
-      setIsProcessing(false);
-    }, state.currentScreen === 0 ? 500 : 1200);
-  }, [state.currentScreen, state.balance, state.completedQuestions, isProcessing, showBalanceToast]);
+    const currentQuestion = questions[currentScreen];
+    const selectedOption = currentQuestion?.options.find(opt => opt.id === optionId);
+    
+    // Always add 45 to balance (like original)
+    const increment = 45;
+    const newBalance = balance + increment;
+    setBalance(newBalance);
+    
+    // Animate balance
+    const saldoElement = document.querySelector('#saldo') as HTMLElement;
+    if (saldoElement) {
+      saldoElement.classList.remove('zoom-in');
+      void saldoElement.offsetWidth; // Force reflow
+      saldoElement.classList.add('zoom-in');
+    }
+
+    // Show popup only if not on final question (pergunta6)
+    const isLastQuestion = currentScreen >= questions.length - 1;
+    if (!isLastQuestion) {
+      showBalanceAlert(increment);
+    }
+
+    // Mark question as completed
+    const newCompleted = new Set(completedQuestions);
+    newCompleted.add(currentScreen);
+    setCompletedQuestions(newCompleted);
+
+    // Move to next question
+    if (currentScreen < questions.length - 1) {
+      setCurrentScreen(currentScreen + 1);
+    } else {
+      setCurrentScreen(questions.length); // Show final screen
+    }
+
+    // Update result text for final screen
+    const resultadovElement = document.querySelector('#resultadov');
+    if (resultadovElement) {
+      resultadovElement.textContent = `Your current balance: $${newBalance.toFixed(2)}`;
+    }
+  }, [currentScreen, balance, completedQuestions, showBalanceAlert]);
 
   const handleWatchVideo = useCallback(() => {
-    // Simular redirecionamento como no original JS
-    toast.success('Redirecting to video...', {
-      duration: 3000,
-      position: 'top-center',
-      style: {
-        background: '#d4edda',
-        color: '#138d36',
-        border: '1px solid #c3e6cb',
-        borderRadius: '5px',
-        fontFamily: 'Roboto'
-      }
-    });
+    // Simulate video redirect with URL params like original
+    const currentUrlParams = window.location.search;
+    window.open(`finish2${currentUrlParams}`, '_blank');
     
-    // No original fazia: window.location.href = "finish2" + currentUrlParams;
+    // Reset the app after a short delay
     setTimeout(() => {
-      // Reset para demo - no original redirecionaria
-      setState({
-        currentScreen: 0,
-        balance: INITIAL_BALANCE,
-        completedQuestions: []
-      });
-    }, 2000);
+      setCurrentScreen(0);
+      setBalance(33.91);
+      setCompletedQuestions(new Set());
+    }, 1000);
   }, []);
 
-  // Show final screen
-  if (state.currentScreen >= questions.length) {
-    return (
-      <>
-        <BalanceDisplay balance={state.balance} />
-        <FinalScreen 
-          balance={state.balance} 
-          onWatchVideo={handleWatchVideo}
-        />
-        <Toaster />
-      </>
-    );
-  }
-
-  const currentQuestion = questions[state.currentScreen];
-
+  // Show question screen or final screen
+  const isOnFinalScreen = currentScreen >= questions.length;
+  
   return (
     <>
-      <BalanceDisplay 
-        balance={state.balance} 
-        className={state.balance !== INITIAL_BALANCE ? 'zoom-in' : ''}
-      />
-      <QuestionScreen
-        question={currentQuestion}
-        onOptionSelect={handleOptionSelect}
-        disabled={isProcessing}
-      />
-      <Toaster />
+      <BalanceDisplay balance={balance} />
+      
+      {isOnFinalScreen ? (
+        <FinalScreen balance={balance} onWatchVideo={handleWatchVideo} />
+      ) : (
+        <QuestionScreen
+          question={questions[currentScreen]}
+          onOptionSelect={handleOptionSelect}
+        />
+      )}
     </>
   );
 };

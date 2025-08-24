@@ -3,13 +3,11 @@ import { Question } from '@/types';
 export const questions: Question[] = [
   {
     id: 1,
-    title: "🎁 Congratulations! 🎁",
-    subtitle: "You have been selected for YouTube's new rewards program. Enjoy!",
+    title: "Welcome Screen",
+    subtitle: "",
+    image: "",
     options: [
-      {
-        id: "start",
-        text: "CLICK HERE AND START!"
-      }
+      { id: "start", text: "Start" }
     ],
     balanceIncrease: 0
   },
@@ -19,43 +17,45 @@ export const questions: Question[] = [
     subtitle: "Select an option below ⬇️",
     image: "/images/1-EUA.png",
     options: [
-      { id: "angry1", icon: "😠" },
-      { id: "angry2", icon: "😡" },
-      { id: "angry3", icon: "🤬" }
+      { id: "like", text: "I like it" },
+      { id: "love", text: "I love it" },
+      { id: "dislike", text: "I don't like it" }
     ],
     balanceIncrease: 45
   },
   {
     id: 3,
-    title: "Does this video's thumbnail make you want to click?",
+    title: "Does this video's thumbnail make you want to click on it?",
     subtitle: "Select an option below ⬇️",
     image: "/images/2-step.png",
     options: [
-      { id: "yes", text: "YES", icon: "👍" },
-      { id: "no", text: "NO", icon: "👎" }
+      { id: "yes", text: "Yes" },
+      { id: "maybe", text: "Maybe" },
+      { id: "no", text: "No" }
     ],
     balanceIncrease: 45
   },
   {
     id: 4,
-    title: "What makes this video interesting to you?",
+    title: "What is your reaction when you see this video's thumbnail?",
     subtitle: "Select an option below ⬇️",
     image: "/images/3-EUA.png",
     options: [
-      { id: "topic", text: "THE TOPIC" },
-      { id: "thumbnail", text: "THE THUMBNAIL" },
-      { id: "title", text: "THE TITLE" }
+      { id: "like2", text: "I like it" },
+      { id: "love2", text: "I love it" },
+      { id: "dislike2", text: "I don't like it" }
     ],
     balanceIncrease: 45
   },
   {
     id: 5,
-    title: "Would you recommend this content to a friend?",
+    title: "Does this video's thumbnail make you want to click on it?",
     subtitle: "Select an option below ⬇️",
     image: "/images/4-step.png",
     options: [
-      { id: "yes", text: "YES", icon: "👍" },
-      { id: "no", text: "NO", icon: "👎" }
+      { id: "yes2", text: "Yes" },
+      { id: "maybe2", text: "Maybe" },
+      { id: "no2", text: "No" }
     ],
     balanceIncrease: 45
   }

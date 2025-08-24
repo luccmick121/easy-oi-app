@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  /* Cores exatas da PRIEIRA PARTE */
-  --background: 215 72% 12%; /* #00122C */
+  /* Cores exatas da PRIEIRA PARTE - Usando HSL */
+  --background: 215 100% 9%; /* #00122C */
   --foreground: 0 0% 100%; /* #FFFFFF */
-  --card: 215 50% 16%; /* #0D2436 */
+  --card: 215 56% 13%; /* #0D2436 */
   --card-foreground: 0 0% 100%;
   --primary: 142 75% 36%; /* #17B651 */
   --primary-foreground: 0 0% 100%;
-  --secondary: 215 47% 19%; /* #122534 */
+  --secondary: 215 46% 14%; /* #122534 */
   --secondary-foreground: 0 0% 100%;
   --muted: 0 0% 91%; /* #E7E7E7 */
   --muted-foreground: 0 0% 91%;
@@ -18,14 +18,14 @@
   --accent-foreground: 0 0% 100%;
   --destructive: 0 100% 43%; /* #D90000 */
   --destructive-foreground: 0 0% 100%;
-  --border: 215 47% 19%;
-  --input: 215 47% 19%;
+  --border: 215 46% 14%;
+  --input: 215 46% 14%;
   --ring: 142 75% 36%;
   --radius: 12px;
   
   /* Cores específicas dos botões */
   --button-green: 142 75% 36%; /* #17B651 */
-  --button-yellow: 48 98% 52%; /* #FDD809 */
+  --button-yellow: 48 100% 52%; /* #FDD809 */
   --button-red: 0 100% 43%; /* #D90000 */
   --balance-green: 136 70% 33%; /* #138D36 */
   --balance-bg: 134 44% 77%; /* #D4EDDA */
@@ -33,9 +33,11 @@
 
 body {
   font-family: 'Roboto', system-ui, -apple-system, sans-serif;
-  background: hsl(var(--background));
-  color: hsl(var(--foreground));
+  background: #00122C;
+  color: #FFFFFF;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 /* Classes específicas para compatibilidade com original */
@@ -53,6 +55,62 @@ body {
 
 .slide-in {
   animation: slideIn 0.4s ease-out;
+}
+
+/* Sticky header igual ao original */
+.balance-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 89px;
+  background-color: #0D2436;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
+}
+
+/* Card do saldo */
+.balance-display-card {
+  background-color: #D4EDDA;
+  color: #138D36;
+  border-radius: 8px;
+  padding: 12px 24px;
+  max-width: 523px;
+  width: 100%;
+  text-align: right;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Container principal */
+.main-container {
+  background-color: #00122C;
+  min-height: 100vh;
+  padding-top: 89px;
+}
+
+/* Card da pergunta */
+.question-card {
+  background-color: #122534;
+  border-radius: 12px;
+  padding: 30px 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Tela final */
+.final-screen-card {
+  background-color: #0D2436;
+  border-radius: 12px;
+  padding: 30px 20px;
+  margin: 20px auto;
+  max-width: 400px;
+  text-align: center;
 }
 
 @keyframes zoomBalance {
