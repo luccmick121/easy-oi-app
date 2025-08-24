@@ -10,7 +10,7 @@ interface QuestionScreenProps {
 
 const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScreenProps) => {
   // Special welcome screen for first question - EXACT ORIGINAL
-  if (question.id === 1) {
+  if (question.id === 0) {
     return (
       <div className="main-container">
         <div className="flex flex-col items-center justify-center px-2 min-h-screen">

@@ -3,16 +3,6 @@ import { Question } from '@/types';
 export const questions: Question[] = [
   {
     id: 1,
-    title: "Welcome Screen",
-    subtitle: "",
-    image: "",
-    options: [
-      { id: "start", text: "CLICK HERE AND START!" }
-    ],
-    balanceIncrease: 0
-  },
-  {
-    id: 2,
     title: "What is your reaction when you see this video's thumbnail?",
     subtitle: "Select an option below ⬇️",
     image: "/images/1-EUA.png",
@@ -24,7 +14,7 @@ export const questions: Question[] = [
     balanceIncrease: 45
   },
   {
-    id: 3,
+    id: 2,
     title: "Does this video's thumbnail make you want to click on it?",
     subtitle: "Select an option below ⬇️",
     image: "/images/2-step.png",
@@ -36,7 +26,7 @@ export const questions: Question[] = [
     balanceIncrease: 45
   },
   {
-    id: 4,
+    id: 3,
     title: "What is your reaction when you see this video's thumbnail?",
     subtitle: "Select an option below ⬇️",
     image: "/images/3-EUA.png",
@@ -48,7 +38,7 @@ export const questions: Question[] = [
     balanceIncrease: 45
   },
   {
-    id: 5,
+    id: 4,
     title: "Does this video's thumbnail make you want to click on it?",
     subtitle: "Select an option below ⬇️",
     image: "/images/4-step.png",
@@ -60,7 +50,7 @@ export const questions: Question[] = [
     balanceIncrease: 45
   },
   {
-    id: 6,
+    id: 5,
     title: "Final question: How likely are you to recommend this survey?",
     subtitle: "Select an option below ⬇️",
     image: "",
