@@ -20,7 +20,7 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
                 🎁 Congratulations! 🎁
               </h1>
               <p className="text-white mb-4" style={{ fontSize: '15px', fontWeight: '400' }}>
-                You have been selected to participate in YouTube's new rewards program.
+                You have been selected for YouTube's new rewards program. Enjoy!
               </p>
               
               {/* Earnings highlight card - EXACT ORIGINAL */}
@@ -29,7 +29,7 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
               </div>
               
               <p className="text-white mb-6" style={{ fontSize: '15px', fontWeight: '400' }}>
-                Answer 5 simple questions and earn money for each correct answer.
+                Complete 5 more evaluations and make your first withdrawal!
               </p>
               
               <button
@@ -45,6 +45,12 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
               >
                 CLICK HERE AND START!
               </button>
+              
+              {/* Footer - como na segunda imagem */}
+              <footer className="mt-8 text-center space-y-2 text-gray-400" style={{ fontSize: '12px', fontWeight: '400' }}>
+                <p>Privacy Policy | Terms of Use</p>
+                <p>All rights reserved.</p>
+              </footer>
             </div>
           </div>
         </div>

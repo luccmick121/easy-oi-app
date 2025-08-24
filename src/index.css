@@ -72,15 +72,15 @@ body {
   padding: 0 16px;
 }
 
-/* Card do saldo */
+/* Card do saldo - FUNDO VERDE SÓLIDO */
 .balance-display-card {
-  background-color: #D4EDDA;
-  color: #138D36;
+  background-color: #138D36; /* Verde sólido como na imagem */
+  color: #FFFFFF; /* Texto branco */
   border-radius: 8px;
   padding: 12px 24px;
   max-width: 523px;
   width: 100%;
-  text-align: right;
+  text-align: center;
   font-size: 24px;
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
