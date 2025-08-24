@@ -9,6 +9,22 @@ interface QuestionScreenProps {
 }
 
 const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScreenProps) => {
+  // Debug logging
+  console.log('QuestionScreen render:', { question, disabled });
+  
+  // Safety check
+  if (!question) {
+    return (
+      <div className="main-container">
+        <div className="flex flex-col items-center justify-center px-4 min-h-screen">
+          <div className="text-white text-center">
+            Error: No question data provided
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // Special welcome screen for first question - EXACT ORIGINAL
   if (question.id === 0) {
     return (

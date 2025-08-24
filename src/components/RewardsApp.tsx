@@ -91,6 +91,14 @@ const RewardsApp = () => {
   // Show question screen or final screen
   const isOnFinalScreen = currentScreen === 5;
   
+  // Debug logging
+  console.log('RewardsApp render:', { 
+    currentScreen, 
+    questionsLength: questions.length, 
+    isOnFinalScreen,
+    currentQuestion: questions[currentScreen] 
+  });
+
   return (
     <>
       <BalanceDisplay balance={balance} />
@@ -110,10 +118,16 @@ const RewardsApp = () => {
           onOptionSelect={handleOptionSelect}
         />
       ) : (
-        <QuestionScreen
-          question={questions[currentScreen]}
-          onOptionSelect={handleOptionSelect}
-        />
+        questions[currentScreen] ? (
+          <QuestionScreen
+            question={questions[currentScreen]}
+            onOptionSelect={handleOptionSelect}
+          />
+        ) : (
+          <div className="text-white text-center">
+            Error: Question not found for screen {currentScreen}
+          </div>
+        )
       )}
     </>
   );
