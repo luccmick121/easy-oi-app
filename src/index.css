@@ -2,6 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Design System Colors */
+  --background: 222 84% 5%;
+  --foreground: 0 0% 98%;
+  --card: 222 84% 5%;
+  --card-foreground: 0 0% 98%;
+  --primary: 142 76% 36%;
+  --primary-foreground: 355 7% 97%;
+  --secondary: 217 33% 17%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 215 28% 17%;
+  --muted-foreground: 217 11% 65%;
+  --accent: 142 76% 36%;
+  --accent-foreground: 355 7% 97%;
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 0 86% 97%;
+  --border: 217 33% 17%;
+  --input: 217 33% 17%;
+  --ring: 142 76% 36%;
+  --radius: 0.5rem;
+  
+  /* Custom tokens */
+  --gradient-primary: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(142 86% 46%) 100%);
+  --gradient-secondary: linear-gradient(135deg, hsl(222 84% 5%) 0%, hsl(217 33% 17%) 100%);
+  --shadow-elegant: 0 10px 30px -10px hsl(142 76% 36% / 0.3);
+  --shadow-glow: 0 0 40px hsl(142 86% 46% / 0.4);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  min-height: 100vh;
+}
+
+/* Animations */
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.zoom-in {
+  animation: zoomIn 0.5s ease-out;
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.4s ease-out;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
