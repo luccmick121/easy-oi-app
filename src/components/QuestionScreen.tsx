@@ -15,36 +15,30 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
       <div className="main-container">
         <div className="flex flex-col items-center justify-center px-4 min-h-screen">
           <div className="final-screen-card fade-in">
-            <div className="text-center space-y-4">
-              <h1 className="text-white" style={{ fontSize: '24px', fontWeight: '600' }}>
+            <div className="text-center space-y-6 mb-8">
+              <h2 className="text-white" style={{ fontSize: '24px', fontWeight: '600' }}>
                 🎁 Congratulations! 🎁
-              </h1>
-              <div className="balance-display-card mx-auto zoom-in" style={{ fontSize: '24px', fontWeight: '600' }}>
-                $33.91
-              </div>
-              <p className="text-white" style={{ fontSize: '19px', fontWeight: '400' }}>
-                You have been selected for <strong>YouTube's new rewards program.</strong> Enjoy!
+              </h2>
+              <p className="text-white" style={{ fontSize: '19px', fontWeight: '500' }}>
+                You have been selected to participate in our exclusive survey and earn real money!
               </p>
-              <p className="text-white" style={{ fontSize: '18px', fontWeight: '400' }}>
-                You have already earned <strong>$33.91!</strong>
-              </p>
-              <p className="text-white" style={{ fontSize: '18px', fontWeight: '400' }}>
-                Complete <strong>5 more evaluations</strong> and make your first withdrawal!
+              <p className="text-white" style={{ fontSize: '15px', fontWeight: '400' }}>
+                Answer a few quick questions and watch your balance grow.
               </p>
             </div>
 
             <Button
               onClick={() => onOptionSelect('start')}
               disabled={disabled}
-              className="w-full mt-6 py-4 px-6 text-white rounded-sm font-medium atualizar-saldo"
+              className="w-full py-4 px-6 text-white rounded-sm font-medium"
               style={{ 
-                backgroundColor: '#17B651',
+                backgroundColor: '#138D36',
                 fontSize: '18px',
                 fontWeight: '500',
                 border: 'none'
               }}
             >
-              CLICK HERE AND START!
+              START EARNING
             </Button>
           </div>
         </div>
@@ -87,9 +81,9 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
           <div className="space-y-3">
             {question.options.map((option, index) => {
               const buttonColors = [
-                '#17B651', // Verde
-                '#FDD809', // Amarelo  
-                '#D90000'  // Vermelho
+                '#17B651', // Verde - exato do original
+                '#FDD809', // Amarelo - exato do original  
+                '#D90000'  // Vermelho - exato do original
               ];
               const backgroundColor = buttonColors[index % buttonColors.length];
 
@@ -98,12 +92,12 @@ const QuestionScreen = memo(({ question, onOptionSelect, disabled }: QuestionScr
                   key={option.id}
                   onClick={() => onOptionSelect(option.id)}
                   disabled={disabled}
-                  className={`w-full py-4 px-6 text-white rounded-sm transition-all duration-200 atualizar-saldo ${
+                  className={`w-full py-4 px-6 text-white rounded-sm transition-all duration-200 ${
                     disabled ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'
                   }`}
                   style={{ 
                     backgroundColor,
-                    fontSize: '15px',
+                    fontSize: '18px',
                     fontWeight: '500',
                     border: 'none'
                   }}

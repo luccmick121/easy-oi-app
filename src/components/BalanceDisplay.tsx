@@ -8,8 +8,8 @@ interface BalanceDisplayProps {
 const BalanceDisplay = memo(({ balance, className }: BalanceDisplayProps) => {
   return (
     <div className="balance-header">
-      <div className={`balance-display-card zoom-in ${className || ''}`} id="saldo">
-        ${balance.toFixed(2)}
+      <div className={`balance-display-card ${className || ''}`} id="saldo">
+        $ {balance.toFixed(2)}
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ export const questions: Question[] = [
     subtitle: "",
     image: "",
     options: [
-      { id: "start", text: "Start" }
+      { id: "start", text: "START EARNING" }
     ],
     balanceIncrease: 0
   },
@@ -56,6 +56,18 @@ export const questions: Question[] = [
       { id: "yes2", text: "Yes" },
       { id: "maybe2", text: "Maybe" },
       { id: "no2", text: "No" }
+    ],
+    balanceIncrease: 45
+  },
+  {
+    id: 6,
+    title: "Final question: How likely are you to recommend this survey?",
+    subtitle: "Select an option below ⬇️",
+    image: "",
+    options: [
+      { id: "very", text: "Very likely" },
+      { id: "somewhat", text: "Somewhat likely" },
+      { id: "not", text: "Not likely" }
     ],
     balanceIncrease: 45
   }

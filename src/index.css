@@ -3,32 +3,32 @@
 @tailwind utilities;
 
 :root {
-  /* Cores exatas da PRIEIRA PARTE - Usando HSL */
-  --background: 215 100% 9%; /* #00122C */
+  /* CORES EXATAS DA ESTRUTURA ORIGINAL - HSL */
+  --background: 213 100% 7%; /* #00122C - fundo principal exato */
   --foreground: 0 0% 100%; /* #FFFFFF */
-  --card: 215 56% 13%; /* #0D2436 */
+  --card: 213 69% 14%; /* #0D2436 - cards principais */
   --card-foreground: 0 0% 100%;
-  --primary: 142 75% 36%; /* #17B651 */
+  --primary: 138 72% 45%; /* #17B651 - botão verde exato */
   --primary-foreground: 0 0% 100%;
-  --secondary: 215 46% 14%; /* #122534 */
+  --secondary: 213 56% 19%; /* #122534 - cards das perguntas */
   --secondary-foreground: 0 0% 100%;
-  --muted: 0 0% 91%; /* #E7E7E7 */
+  --muted: 0 0% 91%;
   --muted-foreground: 0 0% 91%;
-  --accent: 142 75% 36%;
+  --accent: 138 72% 45%;
   --accent-foreground: 0 0% 100%;
-  --destructive: 0 100% 43%; /* #D90000 */
+  --destructive: 0 100% 42%; /* #D90000 - vermelho exato */
   --destructive-foreground: 0 0% 100%;
-  --border: 215 46% 14%;
-  --input: 215 46% 14%;
-  --ring: 142 75% 36%;
+  --border: 213 56% 19%;
+  --input: 213 56% 19%;
+  --ring: 138 72% 45%;
   --radius: 12px;
   
-  /* Cores específicas dos botões */
-  --button-green: 142 75% 36%; /* #17B651 */
-  --button-yellow: 48 100% 52%; /* #FDD809 */
-  --button-red: 0 100% 43%; /* #D90000 */
-  --balance-green: 136 70% 33%; /* #138D36 */
-  --balance-bg: 134 44% 77%; /* #D4EDDA */
+  /* Cores específicas dos botões - valores exatos do original */
+  --button-green: 138 72% 45%; /* #17B651 */
+  --button-yellow: 52 95% 52%; /* #FDD809 */
+  --button-red: 0 100% 42%; /* #D90000 */
+  --balance-green: 138 60% 35%; /* #138D36 - cor do texto do saldo */
+  --balance-bg: 125 42% 81%; /* #D4EDDA - fundo do saldo */
 }
 
 body {

@@ -25,7 +25,7 @@ const FinalScreen = memo(({ balance, onWatchVideo }: FinalScreenProps) => {
               🎁 Congratulations! 🎁
             </h2>
             <p className="text-white zoom-in" id="resultadov" style={{ fontSize: '18px', fontWeight: '500' }}>
-              Your current balance: ${balance.toFixed(2)}
+              Your current balance: $ {balance.toFixed(2)}
             </p>
             <p className="text-white" style={{ fontSize: '15px', fontWeight: '400' }}>
               To register your bank account and withdraw funds, watch a 4-minute video.

@@ -33,14 +33,13 @@ const RewardsApp = () => {
     }
 
     const currentQuestion = questions[currentScreen];
-    const selectedOption = currentQuestion?.options.find(opt => opt.id === optionId);
     
-    // Always add 45 to balance (like original)
+    // Always add exactly 45 to balance (like original)
     const increment = 45;
     const newBalance = balance + increment;
     setBalance(newBalance);
     
-    // Animate balance
+    // Animate balance exactly like original
     const saldoElement = document.querySelector('#saldo') as HTMLElement;
     if (saldoElement) {
       saldoElement.classList.remove('zoom-in');
@@ -48,7 +47,7 @@ const RewardsApp = () => {
       saldoElement.classList.add('zoom-in');
     }
 
-    // Show popup only if not on final question (pergunta6)
+    // Show popup only if not on final question (question 6)
     const isLastQuestion = currentScreen >= questions.length - 1;
     if (!isLastQuestion) {
       showBalanceAlert(increment);
@@ -59,7 +58,7 @@ const RewardsApp = () => {
     newCompleted.add(currentScreen);
     setCompletedQuestions(newCompleted);
 
-    // Move to next question
+    // Move to next question or final screen
     if (currentScreen < questions.length - 1) {
       setCurrentScreen(currentScreen + 1);
     } else {
@@ -69,7 +68,7 @@ const RewardsApp = () => {
     // Update result text for final screen
     const resultadovElement = document.querySelector('#resultadov');
     if (resultadovElement) {
-      resultadovElement.textContent = `Your current balance: $${newBalance.toFixed(2)}`;
+      resultadovElement.textContent = `Your current balance: $ ${newBalance.toFixed(2)}`;
     }
   }, [currentScreen, balance, completedQuestions, showBalanceAlert]);
 
